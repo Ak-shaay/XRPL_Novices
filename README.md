@@ -18,21 +18,22 @@ Before running the project, make sure you have the following installed:
 First, clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/your-repository.git
-cd your-repository
+git clone https://github.com/Ak-shaay/XRPL_Novices.git
+cd XRPL_Novices
 
 
 ### 2. Running backend
 
+
 ```bash
-cd your-repository/backend
+cd XRPL_Novices/backend
 
 npm start
 
 ### 3. Running Frontend
 
 ```bash
-cd your-repository/frontend
+cd XRPL_Novices/frontend
 
 npm start
 
