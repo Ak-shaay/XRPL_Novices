@@ -20,6 +20,7 @@ const Dashboard = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isActionLoading, setIsActionLoading] = useState(false);
+  const [isImageLoading, setIsImageLoading] = useState(true); // New state for image loading
 
   const getAllReports = async () => {
     setIsLoading(true);
@@ -40,6 +41,10 @@ const Dashboard = () => {
   useEffect(() => {
     getAllReports();
   }, []);
+
+  const handleImageLoad = () => {
+    setIsImageLoading(false); // Set loading to false once the image has loaded
+  };
 
   const handleViewClick = (data) => {
     setDescription(data.description);
@@ -232,7 +237,21 @@ const Dashboard = () => {
               <div className="modal-body">
                 <div className="row d-flex justify-content-center">
                   <div className="col-8">
-                    <img src={imageUrl} className="img-fluid" alt="Unable to load image" />
+                    {/* <img src={imageUrl} className="img-fluid" alt="Unable to load image" /> */}
+                    {isImageLoading && (
+                      <div className="text-center">
+                        <div className="spinner-border text-primary" role="status">
+                          <span className="visually-hidden">Loading...</span>
+                        </div>
+                        <p>Loading Image...</p>
+                      </div>
+                    )}
+                    <img
+                      src={imageUrl}
+                      className="img-fluid"
+                      alt="Unable to load image"
+                      onLoad={handleImageLoad} // Trigger when image is loaded
+                    />
                   </div>
                 </div>
                 <div className="row">
